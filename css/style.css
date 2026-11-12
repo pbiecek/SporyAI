@@ -1,0 +1,204 @@
+/* Kroje z brandbooka CCAI: Lexend Deca (główny) i Roboto Mono (uzupełniający). Pliki w fonts/, bez połączenia z siecią. */
+@font-face{font-family:"Lexend Deca";font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/lexend-deca-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Lexend Deca";font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/lexend-deca-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Lexend Deca";font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/lexend-deca-latin-ext-600-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Lexend Deca";font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/lexend-deca-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Roboto Mono";font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/roboto-mono-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Roboto Mono";font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/roboto-mono-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Roboto Mono";font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/roboto-mono-latin-ext-600-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Roboto Mono";font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/roboto-mono-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+  --paper:#ECF0EA;
+  --ink:#11272B;
+  --muted:#52625F;
+  --doubt:#B3312A;      /* głosy: nie będziemy wiedzieć */
+  --hope:#1B6A4E;       /* głosy: będziemy wiedzieć */
+  --gold:#DFA21B;
+  --bubble:#FFFFFF;
+  --display:"Lexend Deca","Segoe UI",system-ui,sans-serif;
+  --text:"Lexend Deca","Segoe UI",system-ui,sans-serif;
+  --mono:"Roboto Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --bar-h:4.25rem;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--bar-h) + 1.5rem)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--text);font-size:1rem;line-height:1.7;font-weight:400;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+
+/* language switch: both versions live in the markup */
+html[data-lang="pl"] body [lang="en"],
+html[data-lang="en"] body [lang="pl"]{display:none !important}
+
+/* ---------- fixed bar with the balance of the dispute ---------- */
+.bar{position:fixed;inset:0 0 auto 0;z-index:10;height:var(--bar-h);display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.5rem;padding:0 1.25rem;background:var(--paper);border-bottom:2px solid var(--ink)}
+.bar__title{font-family:var(--display);font-weight:600;font-size:1.05rem;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+.gauge{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:.75rem;font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.03em;line-height:1.15;min-width:0}
+.gauge__end{max-width:11rem}
+.gauge__end--doubt{color:var(--doubt);text-align:right}
+.gauge__end--hope{color:var(--hope)}
+.gauge__track{position:relative;height:1.75rem;min-width:0}
+.gauge__track::before{content:"";position:absolute;left:0;right:0;top:50%;height:4px;margin-top:-2px;border-radius:2px;background:linear-gradient(90deg,var(--doubt) 0 50%,var(--hope) 50% 100%);opacity:.3}
+.gauge__mid{position:absolute;left:50%;top:15%;bottom:15%;width:2px;margin-left:-1px;background:var(--ink);opacity:.35}
+.gauge__mark{position:absolute;top:50%;left:50%;width:.5rem;height:.5rem;margin:-.25rem 0 0 -.25rem;border-radius:50%;background:var(--ink);opacity:0;transition:opacity .4s}
+.gauge__mark.is-on{opacity:.3}
+.gauge__needle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);padding:.15rem .5rem;border-radius:1rem;background:var(--ink);color:var(--paper);font-weight:600;font-size:.8rem;white-space:nowrap;font-variant-numeric:tabular-nums;transition:left .9s cubic-bezier(.3,1.5,.5,1),background-color .5s}
+.gauge__needle[data-side="doubt"]{background:var(--doubt)}
+.gauge__needle[data-side="hope"]{background:var(--hope)}
+.langs{display:flex;border:2px solid var(--ink);border-radius:2rem;overflow:hidden}
+.langs button{font:600 .85rem var(--display);padding:.3rem .7rem;border:0;background:transparent;color:var(--ink);cursor:pointer}
+.langs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+/* opisy końców szali: widoczny tylko zestaw bieżącego sporu */
+[data-for-ep]{display:none}
+html[data-ep="1"] [data-for-ep="1"],html[data-ep="2"] [data-for-ep="2"],html[data-ep="3"] [data-for-ep="3"]{display:inline}
+html[data-ep="0"] .gauge,html[data-ep="end"] .gauge{visibility:hidden}      /* plansza początkowa: bez szali */
+/* kolory sporów: lewa (--doubt) i prawa (--hope) strona każdego sporu */
+.ep--1,html[data-ep="1"] .bar{--doubt:#0B6E77;--hope:#8A2F63}   /* spór 1: pełna / pewna */
+.ep--2,html[data-ep="2"] .bar{--doubt:#3A3C95;--hope:#96580A}   /* spór 2: jutro / dziś */
+/* spór 3 używa kolorów domyślnych z :root */
+.bar__left{display:flex;align-items:center;gap:.75rem}
+.eps{display:flex;gap:.25rem;font:600 .85rem var(--display)}
+.eps a{display:grid;place-items:center;width:1.6rem;height:1.6rem;border-radius:50%;text-decoration:none;border:2px solid transparent}
+.eps a:hover{border-color:var(--ink)}
+html[data-ep="1"] .eps [data-ep-link="1"],html[data-ep="2"] .eps [data-ep-link="2"],html[data-ep="3"] .eps [data-ep-link="3"]{background:var(--ink);color:var(--paper)}
+
+/* ---------- plansza początkowa ---------- */
+/* kolaż 16:9 mieści się w oknie; tytuł leży na środku pustego pola grafiki */
+.ep--0{padding-top:var(--bar-h)}
+.intro__hero{position:relative;container-type:inline-size;width:min(100%,calc((100svh - var(--bar-h)) * 16 / 9));margin:0 auto}
+.intro__hero img{width:100%;mix-blend-mode:multiply;filter:brightness(1.04)}
+.intro__title{position:absolute;left:50%;top:60%;transform:translate(-50%,-50%);margin:0;white-space:nowrap;font-family:var(--display);font-weight:400;font-size:5.2cqw;line-height:1;letter-spacing:-.01em}
+/* wersja angielska tytułu jest dłuższa, więc stoi w dwóch wierszach i mniejszym stopniem */
+.intro__title-en{display:block;position:relative;top:.5cqw;font-size:3.1cqw;line-height:1.08;letter-spacing:.02em;text-align:center}
+.wrap.intro__body{min-height:calc(100svh - var(--bar-h));padding-top:3rem;padding-bottom:3rem;display:flex;flex-direction:column;justify-content:center}
+.intro__text{max-width:42rem;font-size:clamp(1.1rem,1.7vw,1.35rem);line-height:1.55}
+.intro__text p{margin:0 0 1rem}
+.intro__sign{font-family:var(--mono);font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.intro__list{margin:2rem 0 0;padding:0;list-style:none;counter-reset:d;font-family:var(--display);font-weight:600;font-size:clamp(1.2rem,2.3vw,1.8rem);line-height:1.25;letter-spacing:-.02em}
+.intro__list li{counter-increment:d;border-top:2px solid var(--ink);padding:.6rem 0}
+.intro__list li:last-child{border-bottom:2px solid var(--ink)}
+.intro__list a{display:block;text-decoration:none}
+.intro__list a::before{content:counter(d) ".";display:inline-block;width:2.2rem;color:var(--muted)}
+.intro__list a:hover{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:5px}
+.intro__keys{margin:1.5rem 0 0;font-family:var(--mono);font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+
+/* ---------- przyciski: poprzednia / następna część ---------- */
+.stepper{position:fixed;right:1rem;bottom:1rem;z-index:10;display:flex;flex-direction:column;gap:.35rem}
+.stepper button{width:2.5rem;height:2.5rem;border:2px solid var(--ink);border-radius:50%;background:var(--paper);color:var(--ink);font:400 1.1rem/1 var(--mono);cursor:pointer}
+@media (hover:hover){.stepper button:hover{background:var(--ink);color:var(--paper)}}
+@media (max-width:760px){.stepper{right:.5rem;bottom:.5rem}.stepper button{width:2.1rem;height:2.1rem;font-size:.95rem}}
+@media print{.stepper,.bar{display:none}}
+
+/* ---------- plansza tytułowa sporu ---------- */
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.25rem}
+.opening{min-height:100svh;padding-top:calc(var(--bar-h) + 4rem);padding-bottom:3rem;display:flex;flex-direction:column;justify-content:center}
+.opening__latin{font-family:var(--mono);font-size:clamp(1.1rem,2.2vw,1.5rem);color:var(--doubt);margin:0 0 .5rem;text-decoration:line-through;text-decoration-thickness:2px}
+.opening__kicker{font-family:var(--mono);font-weight:400;font-size:.9rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 1.25rem}
+.opening__title{font-family:var(--display);font-weight:600;font-size:clamp(2.6rem,9vw,7.5rem);line-height:.98;letter-spacing:-.035em;margin:0 0 2rem;color:var(--hope)}
+.opening__title--split{color:var(--ink)}
+.opening__title--split .t-a{color:var(--doubt)}
+.opening__title--split .t-b{color:var(--hope)}
+.opening__lede{max-width:38rem;font-size:clamp(1.15rem,1.9vw,1.4rem);line-height:1.5;margin:0 0 2.5rem}
+.years{display:flex;flex-wrap:wrap;gap:.75rem 1.75rem;list-style:none;padding:0;margin:0;font-family:var(--display)}
+.years a{display:block;text-decoration:none;line-height:1.2}
+.years b{display:block;font-size:1.6rem;font-weight:600;letter-spacing:-.02em}
+.years span{font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.years b span{font:inherit;text-transform:none;letter-spacing:inherit;color:inherit}
+.years .is-doubt b{color:var(--doubt)}
+.years .is-hope b{color:var(--hope)}
+.years a:hover b{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:4px}
+
+/* ---------- the dispute ---------- */
+.aside{font-family:var(--mono);font-size:clamp(1rem,1.6vw,1.25rem);line-height:1.5;color:var(--muted);max-width:30rem;margin:0 auto;padding:5rem 0 3.5rem;text-align:center}
+.voice{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:2.5rem;align-items:start;padding-bottom:2rem}
+.voice--hope{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+.voice--hope .voice__who{order:2}
+.voice__who{position:sticky;top:calc(var(--bar-h) + 1.5rem)}
+.voice__who{mix-blend-mode:multiply}           /* wtapia białe tło ilustracji w tło strony */
+.voice__who img{width:100%;max-height:27rem;object-fit:contain;object-position:left bottom;filter:brightness(1.06)}
+.voice--hope .voice__who img{object-position:right bottom}
+.voice__year{font-family:var(--display);font-weight:600;font-size:clamp(3rem,7vw,5.25rem);line-height:.9;letter-spacing:-.04em;margin:0}
+.voice__year--long{font-size:clamp(2rem,4.5vw,3.4rem);line-height:1}
+.voice--doubt .voice__year{color:var(--doubt)}
+.voice--hope .voice__year{color:var(--hope)}
+.voice__name{font-family:var(--display);font-weight:600;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.1;letter-spacing:-.02em;margin:.6rem 0 .2rem}
+.voice__role{font-family:var(--mono);font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;line-height:1.4;color:var(--muted);margin:0 0 1.5rem}
+
+.bubble{position:relative;background:var(--bubble);border:2px solid var(--ink);border-radius:1.4rem;padding:1.5rem 1.75rem;font-size:1.05rem;line-height:1.6}
+.bubble::before,.bubble::after{content:"";position:absolute;top:2.6rem;border:solid transparent;border-width:.8rem 1.5rem .8rem 0}
+.bubble::before{left:-1.5rem;border-right-color:var(--ink)}
+.bubble::after{left:calc(-1.5rem + 3.5px);border-right-color:var(--bubble)}
+.voice--hope .bubble::before,.voice--hope .bubble::after{border-width:.8rem 0 .8rem 1.5rem;border-color:transparent;left:auto}
+.voice--hope .bubble::before{right:-1.5rem;border-left-color:var(--ink)}
+.voice--hope .bubble::after{right:calc(-1.5rem + 3.5px);border-left-color:var(--bubble)}
+.bubble p{margin:0 0 .75rem}
+.bubble p:last-child{margin-bottom:0}
+.bubble ul{margin:0 0 .75rem;padding-left:1.2rem}
+.bubble li{margin-bottom:.4rem}
+.bubble .cry{font-family:var(--display);font-weight:600;font-size:1.35rem;line-height:1.25;letter-spacing:-.015em}
+.voice--doubt .cry{color:var(--doubt)}
+.voice--hope .cry{color:var(--hope)}
+
+.context{max-width:36rem;margin-top:1.75rem}
+.context h3,.context h4{font-family:var(--mono);font-weight:400;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;margin:0 0 .5rem;color:var(--muted)}
+.context p{margin:0 0 1rem}
+
+/* ---------- finale ---------- */
+.finale{padding:7rem 0 5rem;text-align:left}
+.finale__old{font-family:var(--mono);font-size:clamp(1.1rem,2.2vw,1.5rem);color:var(--muted);margin:0 0 .75rem}
+.finale__new{font-family:var(--display);font-weight:600;font-size:clamp(2.3rem,7.5vw,6.25rem);line-height:1;letter-spacing:-.035em;color:var(--hope);margin:0 0 2.5rem}
+.finale__next{max-width:36rem;font-size:1.2rem;margin:0}
+.finale__new--ink{color:var(--ink)}
+.finale__next{margin-bottom:1.25rem}
+.outro .finale__next{max-width:44rem}
+.finale a{text-decoration-thickness:2px;text-underline-offset:3px;font-weight:600}
+.horsemen{list-style:none;padding:0;margin:2.5rem 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2rem;counter-reset:h}
+.horsemen li{counter-increment:h;border-top:4px solid var(--ink);padding-top:.75rem;font-size:1rem;line-height:1.55}
+.horsemen b{display:block;font:600 1.35rem/1.15 var(--display);letter-spacing:-.02em;margin-bottom:.5rem}
+.horsemen b::before{content:counter(h) ". "}
+.ep + .ep{border-top:2px solid var(--ink)}
+footer.wrap{border-top:2px solid var(--ink);padding-top:1.5rem;padding-bottom:3rem;font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+
+/* ---------- reveal on scroll (only when JS runs) ---------- */
+.js .reveal{opacity:0;transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.js .voice--doubt .voice__who.reveal{transform:translateX(-3rem)}
+.js .voice--hope .voice__who.reveal{transform:translateX(3rem)}
+.js .bubble.reveal{transform:scale(.94);transform-origin:left 3rem;transition-delay:.25s}
+.js .voice--hope .bubble.reveal{transform-origin:right 3rem}
+.js .context.reveal{transition-delay:.15s}
+.js .reveal.is-in{opacity:1;transform:none}
+
+@media (max-width:760px){
+  :root{--bar-h:6.25rem}
+  .bar{grid-template-columns:1fr auto;grid-template-rows:auto auto;gap:.35rem 1rem;padding:.5rem 1rem}
+  .gauge{grid-column:1 / -1;grid-row:2;font-size:.7rem;gap:.5rem}
+  .gauge__end{max-width:5.2rem}
+  .voice,.voice--hope{grid-template-columns:1fr;gap:1rem}
+  .horsemen{grid-template-columns:1fr 1fr;gap:1.5rem}
+  .voice__who img{max-height:13rem}
+  .bar__left{gap:.4rem}
+  .voice--hope .voice__who{order:0}
+  .voice__who{position:static;display:grid;grid-template-columns:42% minmax(0,1fr);gap:1rem;align-items:end}
+  .voice--hope .voice__who{grid-template-columns:minmax(0,1fr) 42%;text-align:right}
+  .voice__name{overflow-wrap:anywhere}
+  .voice--hope .voice__who img{order:2}
+  .voice__role{margin-bottom:.5rem}
+  .bubble{padding:1.15rem 1.25rem;font-size:1.05rem}
+  .bubble::before,.bubble::after,
+  .voice--hope .bubble::before,.voice--hope .bubble::after{top:-1.5rem;left:3rem;right:auto;border-style:solid;border-color:transparent;border-width:0 .8rem 1.5rem .8rem}
+  .bubble::before,.voice--hope .bubble::before{border-bottom-color:var(--ink)}
+  .bubble::after,.voice--hope .bubble::after{top:calc(-1.5rem + 3.5px);border-bottom-color:var(--bubble)}
+  .voice--hope .bubble::before,.voice--hope .bubble::after{left:auto;right:3rem}
+  .aside{padding:3.5rem 0 2.5rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .reveal{transform:none !important;transition:opacity .3s}
+  .gauge__needle{transition:none}
+}
+
+/* łacina i tytuły dzieł w tekście: Lexend Deca nie ma kursywy, więc wyróżnia je Roboto Mono */
+i{font-style:normal;font-family:var(--mono);font-size:.94em}

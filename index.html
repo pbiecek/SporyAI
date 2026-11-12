@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="pl" data-lang="pl" data-ep="0">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spory o AI</title>
+<meta name="description" content="Od ignorabimus do wyjaśnialnej AI. Sześć głosów w sporze o to, czy złożony system da się zrozumieć.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar__left">
+    <a class="bar__title" href="#top"><span lang="pl">Spory o AI</span><span lang="en">DISPUTES OVER AI</span></a>
+    <nav class="eps" aria-label="Spory / Disputes"><a href="#spor-1" data-ep-link="1">1</a><a href="#spor-2" data-ep-link="2">2</a><a href="#spor-3" data-ep-link="3">3</a></nav>
+  </div>
+  <div class="gauge" role="img" aria-label="Balance of the dispute">
+    <span class="gauge__end gauge__end--doubt"><span data-for-ep="1"><span lang="pl">wiedzieć wszystko</span><span lang="en">know everything</span></span><span data-for-ep="3"><span lang="pl">nie będziemy wiedzieć</span><span lang="en">we will not know</span></span><span data-for-ep="2"><span lang="pl">katastrofa jutro</span><span lang="en">catastrophe tomorrow</span></span></span>
+    <div class="gauge__track">
+      <span class="gauge__mid"></span>
+      <span class="gauge__needle" id="needle">start</span>
+    </div>
+    <span class="gauge__end gauge__end--hope"><span data-for-ep="1"><span lang="pl">wiedzieć na pewno</span><span lang="en">know for certain</span></span><span data-for-ep="3"><span lang="pl">będziemy wiedzieć</span><span lang="en">we will know</span></span><span data-for-ep="2"><span lang="pl">szkody dziś</span><span lang="en">harms today</span></span></span>
+  </div>
+  <div class="langs" role="group" aria-label="Język / Language">
+    <button type="button" data-set-lang="pl" aria-pressed="true">PL</button>
+    <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- =====================================================================
+     PLANSZA POCZĄTKOWA / INTRO
+     ===================================================================== -->
+<div class="ep ep--0" id="start" data-ep="0">
+<!-- plansza 1: kolaż z twarzami (img/tytul.jpg) i tytuł nałożony na środek -->
+<section class="intro__hero">
+  <img src="img/tytul.jpg" alt="" width="2200" height="1238">
+  <h1 class="intro__title"><span lang="pl">Spory o AI</span><span lang="en" class="intro__title-en">DISPUTES<br>OVER AI</span></h1>
+</section>
+
+<!-- plansza 2: skąd ten pomysł -->
+<section class="intro__body wrap">
+  <p class="opening__kicker"><span lang="pl">Skąd ten pomysł</span><span lang="en">Where the idea comes from</span></p>
+
+  <div class="intro__text" lang="pl">
+    <p>Ćwierć wieku temu, studiując matematykę, zacząłem interesować się statystyką. Nie tą statystyką, która jest serią regułek kiedy stosować który wzór i który test statystyczny, ale tą która opisuje rzeczywisty świat.</p>
+    <p>Fascynujące było odkrycie sporu o tym, jak definiować prawdopodobieństwo. Dla bayesistów to miara naszej niepewności. Dla częstościowców to częstość zdarzenia w długiej serii powtórzeń. Na tych różnych definicjach zbudowane są dwie różne statystyki opisujące świat na różne sposoby.</p>
+    <p>Dzisiaj, z analizy danych, przeszedłem na analizę modeli AI. Ale opowiem o nich przez spory, które ludzie o nią toczą.</p>
+    <p class="intro__sign">Przemysław Biecek</p>
+  </div>
+  <div class="intro__text" lang="en">
+    <p>A quarter of a century ago, while studying mathematics, I became interested in statistics. Not the statistics that is a series of rules about when to apply which formula and which statistical test, but the kind that describes the real world.</p>
+    <p>What fascinated me was discovering the dispute over how to define probability. For Bayesians it is a measure of our uncertainty. For frequentists it is how often an event occurs in a long run of repetitions. On these different definitions two different statistics are built, describing the world in different ways.</p>
+    <p>Today I have moved from analysing data to analysing AI models. But I will talk about them through the disputes people have over AI.</p>
+    <p class="intro__sign">Przemysław Biecek</p>
+  </div>
+
+  <ol class="intro__list">
+    <li><a href="#spor-1"><span lang="pl">Wiedza pełna czy pewna?</span><span lang="en">Complete or certain knowledge?</span></a></li>
+    <li><a href="#spor-2"><span lang="pl">Ryzyka jutra czy szkody dziś?</span><span lang="en">Tomorrow’s risks or today’s harms?</span></a></li>
+    <li><a href="#spor-3"><span lang="pl">Czy AI można zrozumieć?</span><span lang="en">Can AI be understood?</span></a></li>
+  </ol>
+  <p class="intro__keys"><span lang="pl">Spacja lub strzałki: następna część</span><span lang="en">Space or arrow keys: next part</span></p>
+</section>
+</div>
+
+<!-- =====================================================================
+     SPÓR 1 / DISPUTE 1: Wiedza pełna czy pewna? / Complete or certain?
+     Lewa strona (voice--doubt) = wiedzieć wszystko / know everything
+     Prawa strona (voice--hope) = wiedzieć na pewno / know for certain
+     data-pos: położenie wskaźnika na pasku, od -1 (lewo) do 1 (prawo)
+     ===================================================================== -->
+<div class="ep ep--1" id="spor-1" data-ep="1">
+
+<!-- plansza tytułowa / title plate -->
+<section class="opening wrap">
+  <p class="opening__kicker"><span lang="pl">Spór pierwszy</span><span lang="en">First dispute</span></p>
+  <h2 class="opening__title opening__title--split">
+    <span lang="pl">Wiedza <span class="t-a">pełna</span> czy <span class="t-b">pewna?</span></span>
+    <span lang="en">Knowledge: <span class="t-a">complete</span> or <span class="t-b">certain?</span></span>
+  </h2>
+  <p class="opening__lede" lang="pl">Kto chce wiedzieć wszystko, płaci pewnością. Kto chce pewności, musi się pogodzić z tym, że czegoś nie wie. Ten wybór jest starszy niż komputery, a dziś dotyczy każdego, kto zadaje pytanie modelowi językowemu.</p>
+  <p class="opening__lede" lang="en">Whoever wants to know everything pays with certainty. Whoever wants certainty has to accept not knowing some things. The choice is older than computers, and today it concerns anyone who asks a language model a question.</p>
+  <ol class="years">
+    <li class="is-hope"><a href="#w-euklides"><b><span lang="pl">300 p.n.e.</span><span lang="en">300 BC</span></b><span><span lang="pl">Euklides</span><span lang="en">Euclid</span></span></a></li>
+    <li class="is-doubt"><a href="#w-pliniusz"><b>77</b><span><span lang="pl">Pliniusz</span><span lang="en">Pliny</span></span></a></li>
+    <li class="is-hope"><a href="#w-bourbaki"><b>1935</b><span>Bourbaki</span></a></li>
+    <li class="is-doubt"><a href="#w-tukey"><b>1962</b><span>Tukey</span></a></li>
+    <li class="is-hope"><a href="#w-lenat"><b>1984</b><span>Lenat</span></a></li>
+    <li class="is-doubt"><a href="#w-shannon"><b>1948</b><span>Shannon</span></a></li>
+  </ol>
+</section>
+
+<div class="wrap">
+
+<!-- ---------- Euklides ---------- -->
+<p class="aside reveal" lang="pl">Zacznijmy od ideału, który przetrwał dwa tysiące lat…</p>
+<p class="aside reveal" lang="en">Let us begin with an ideal that lasted two thousand years…</p>
+
+<article class="voice voice--hope" id="w-euklides" data-pos="0.85" data-label-pl="300 p.n.e." data-label-en="300 BC">
+  <div class="voice__who reveal">
+    <img src="img/euklides.jpg" alt="Euklides">
+    <div>
+      <p class="voice__year voice__year--long"><span lang="pl">ok. 300 p.n.e.</span><span lang="en">c. 300 BC</span></p>
+      <h3 class="voice__name"><span lang="pl">Euklides</span><span lang="en">Euclid</span></h3>
+      <p class="voice__role" lang="pl">matematyk, Aleksandria</p>
+      <p class="voice__role" lang="en">mathematician, Alexandria</p>
+    </div>
+  </div>
+  <div>
+    <div class="bubble reveal">
+      <div lang="pl">
+        <p>Na początku są definicje, pięć postulatów i kilka „pojęć wspólnych”. Z nich wynika kilkaset twierdzeń,</p>
+        <p class="cry">każde z dowodem opartym na poprzednich.</p>
+      </div>
+      <div lang="en">
+        <p>First come definitions, five postulates and a few “common notions”. From them follow several hundred theorems,</p>
+        <p class="cry">each with a proof resting on the ones before.</p>
+      </div>
+    </div>
+    <div class="context reveal" lang="pl">
+      <h4>Skąd ten głos</h4>
+      <p>„Elementy” przez dwa tysiące lat były wzorcem tego, jak wygląda pewność. Spinoza ułożył na ich wzór etykę, a Newton fizykę.</p>
+      <p>Pęknięciem okazał się piąty postulat, o prostych równoległych. W XIX wieku pokazano, że można go zastąpić innym i dostać równie spójną geometrię. Aksjomaty dają więc pewność wnioskowania, ale nie pewność, że opisują świat.</p>
+    </div>
+    <div class="context reveal" lang="en">
+      <h4>Where this voice comes from</h4>
+      <p>For two thousand years the “Elements” were the model of what certainty looks like. Spinoza shaped his ethics after them, and Newton his physics.</p>
+      <p>The crack turned out to be the fifth postulate, on parallel lines. In the nineteenth century it was shown that it can be swapped for another to give an equally consistent geometry. Axioms give certainty of reasoning, then, but no certainty that they describe the world.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ---------- Pliniusz ---------- -->
+<p class="aside reveal" lang="pl">…ale świat nie mieści się w kilkuset twierdzeniach.</p>
+<p class="aside reveal" lang="en">…but the world does not fit into a few hundred theorems.</p>
+
+<article class="voice voice--doubt" id="w-pliniusz" data-pos="-0.85" data-label="77">
+  <div class="voice__who reveal">
+    <img src="img/pliniusz.jpg" alt="Pliniusz Starszy">
+    <div>
+      <p class="voice__year">77</p>
+      <h3 class="voice__name"><span lang="pl">Pliniusz Starszy</span><span lang="en">Pliny the Elder</span></h3>
+      <p class="voice__role" lang="pl">autor „Historii naturalnej”, Rzym</p>
+      <p class="voice__role" lang="en">author of the “Natural History”, Rome</p>
+    </div>
+  </div>
+  <div>
+    <div class="bubble reveal">
+      <div lang="pl">
+        <p>W „Historii naturalnej” zebrał dwadzieścia tysięcy faktów z dwóch tysięcy dzieł. Spisywał także rzeczy niesprawdzone: ludzi z psimi głowami, plemię z jedną wielką stopą, cudowne lekarstwa.</p>
+        <p class="cry">Wolał zapisać za dużo, niż coś pominąć.</p>
+      </div>
+      <div lang="en">
+        <p>In the “Natural History” he gathered twenty thousand facts from two thousand works. He also wrote down things nobody had checked: people with dogs’ heads, a tribe with one huge foot, miracle cures.</p>
+        <p class="cry">He would rather record too much than leave something out.</p>
+      </div>
+    </div>
+    <div class="context reveal" lang="pl">
+      <h4>Skąd ten głos</h4>
+      <p>Pliniusz zginął w 79 roku, bo chciał zobaczyć więcej: popłynął okrętem pod wybuchający Wezuwiusz. Jego encyklopedię czytano przez półtora tysiąca lat.</p>
+      <p>To starożytny model językowy. Wie wszystko, co przeczytał, podaje to płynnie i nie odróżnia faktu od zasłyszanej opowieści.</p>
+    </div>
+    <div class="context reveal" lang="en">
+      <h4>Where this voice comes from</h4>
+      <p>Pliny died in the year 79 because he wanted to see more: he sailed towards the erupting Vesuvius. His encyclopaedia was read for a millennium and a half.</p>
+      <p>He is an ancient language model. He knows everything he has read, delivers it fluently, and does not tell a fact from a tale he once heard.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ---------- Bourbaki ---------- -->
+<p class="aside reveal" lang="pl">W XX wieku pewność wraca z jeszcze większą ambicją…</p>
+<p class="aside reveal" lang="en">In the twentieth century certainty returns with an even greater ambition…</p>
+
+<article class="voice voice--hope" id="w-bourbaki" data-pos="0.7" data-label="1935">
+  <div class="voice__who reveal">
+    <img src="img/bourbaki.jpg" alt="Nicolas Bourbaki">
+    <div>
+      <p class="voice__year">1935</p>
+      <h3 class="voice__name">Nicolas Bourbaki</h3>
+      <p class="voice__role" lang="pl">grupa matematyków</p>
+      <p class="voice__role" lang="en">a group of mathematicians</p>
+    </div>
+  </div>
+  <div>
+    <div class="bubble reveal">
+      <div lang="pl">
+        <p>Próbę formalizacji matematyki podjęła grupa młodych francuskich matematyków, między innymi André Weil, Henri Cartan, Claude Chevalley i Jean Dieudonné. Pracowali pod nazwiskiem Bourbaki. Chcieli napisać porządny podręcznik analizy, a skończyło się na próbie</p>
+        <p class="cry">przepisania całej matematyki od zera.</p>
+      </div>
+      <div lang="en">
+        <p>The attempt to formalise mathematics was taken up by a group of young French mathematicians, among them André Weil, Henri Cartan, Claude Chevalley and Jean Dieudonné. They worked under the name Bourbaki. They set out to write a decent analysis textbook and ended up trying</p>
+        <p class="cry">to rewrite all of mathematics from scratch.</p>
+      </div>
+    </div>
+    <div class="context reveal" lang="pl">
+      <h4>Skąd ten głos</h4>
+      <p>Nazwisko pożyczyli od dziewiętnastowiecznego generała, stąd mundur na portrecie. Ich „Elementy matematyki” liczą kilkadziesiąt tomów i do dziś nie są ukończone.</p>
+      <p>Ceną ścisłości była zrozumiałość: żadnych rysunków, żadnych zastosowań.</p>
+    </div>
+    <div class="context reveal" lang="en">
+      <h4>Where this voice comes from</h4>
+      <p>They borrowed the name from a nineteenth-century general, hence the uniform in the portrait. Their “Elements of Mathematics” run to dozens of volumes and remain unfinished.</p>
+      <p>The price of rigour was intelligibility: no pictures, no applications.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ---------- Tukey ---------- -->
+<p class="aside reveal" lang="pl">…na co statystyk odpowiada, że dane nie będą czekać na aksjomaty.</p>
+<p class="aside reveal" lang="en">…to which a statistician replies that data will not wait for axioms.</p>
+
+<article class="voice voice--doubt" id="w-tukey" data-pos="-0.5" data-label="1962">
+  <div class="voice__who reveal">
+    <img src="img/tukey.jpg" alt="John Tukey">
+    <div>
+      <p class="voice__year">1962</p>
+      <h3 class="voice__name">John Tukey</h3>
+      <p class="voice__role" lang="pl">statystyk, Princeton i Bell Labs</p>
+      <p class="voice__role" lang="en">statistician, Princeton and Bell Labs</p>
+    </div>
+  </div>
+  <div>
+    <div class="bubble reveal">
+      <div lang="pl">
+        <p>Statystyka i eksperyment pozwalają szybko poznać przybliżoną odpowiedź.</p>
+        <p class="cry">Przybliżona odpowiedź na właściwe pytanie jest warta znacznie więcej niż dokładna odpowiedź na pytanie niewłaściwe.</p>
+      </div>
+      <div lang="en">
+        <p>Statistics and experiment let us reach an approximate answer quickly.</p>
+        <p class="cry">An approximate answer to the right question is worth far more than a precise answer to the wrong one.</p>
+      </div>
+    </div>
+    <div class="context reveal" lang="pl">
+      <h4>Skąd ten głos</h4>
+      <p>Tukey stworzył eksploracyjną analizę danych: najpierw patrz na dane i szukaj, dowody przyjdą później. Wymyślił wykres pudełkowy i ukuł słowo „bit”.</p>
+      <p>Od niego prowadzi prosta droga do uczenia maszynowego, które woli działać w przybliżeniu na prawdziwych danych, niż dokładnie na wyidealizowanych.</p>
+    </div>
+    <div class="context reveal" lang="en">
+      <h4>Where this voice comes from</h4>
+      <p>Tukey created exploratory data analysis: look at the data and search first, proofs can come later. He invented the box plot and coined the word “bit”.</p>
+      <p>A straight road leads from him to machine learning, which prefers to work approximately on real data rather than exactly on idealised data.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ---------- Lenat ---------- -->
+<p class="aside reveal" lang="pl">Kiedy pojawiają się komputery, pewność próbuje jeszcze raz…</p>
+<p class="aside reveal" lang="en">When computers arrive, certainty tries once more…</p>
+
+<article class="voice voice--hope" id="w-lenat" data-pos="0.6" data-label="1984">
+  <div class="voice__who reveal">
+    <img src="img/lenat.jpg" alt="Douglas Lenat">
+    <div>
+      <p class="voice__year">1984</p>
+      <h3 class="voice__name">Douglas Lenat</h3>
+      <p class="voice__role" lang="pl">informatyk, twórca projektu Cyc</p>
+      <p class="voice__role" lang="en">computer scientist, creator of Cyc</p>
+    </div>
+  </div>
+  <div>
+    <div class="bubble reveal">
+      <div lang="pl">
+        <p>Cyc miał zebrać w jednej bazie podstawowe pojęcia i reguły tego, jak działa świat, także wiedzę zdroworozsądkową, której nikt nie zapisuje, bo każdy ją zna. Czterdzieści lat ręcznego wpisywania do komputera sprawdzonych faktów i reguł.</p>
+        <p class="cry">Każde zdanie pewne, ale całość nigdy nie była kompletna.</p>
+      </div>
+      <div lang="en">
+        <p>Cyc was meant to gather in one base the basic concepts and rules of how the world works, including the common-sense knowledge nobody writes down because everybody has it. Forty years of entering checked facts and rules into a computer by hand.</p>
+        <p class="cry">Every sentence certain, yet the whole was never complete.</p>
+      </div>
+    </div>
+    <div class="context reveal" lang="pl">
+      <h4>Skąd ten głos</h4>
+      <p>Lenat zaczął w 1984 roku i pracował nad Cykiem do śmierci w 2023 roku. System potrafił wyjaśnić każdy swój wniosek krok po kroku, czego do dziś nie umieją modele językowe.</p>
+      <p>W ostatnim artykule, napisanym z Garym Marcusem, Lenat zaproponował by godna zaufania AI łączyła podejście symboliczne i neuronowe.</p>
+    </div>
+    <div class="context reveal" lang="en">
+      <h4>Where this voice comes from</h4>
+      <p>Lenat began in 1984 and worked on Cyc until his death in 2023. The system could explain each of its conclusions step by step, something language models still cannot do.</p>
+      <p>In his last paper, written with Gary Marcus, Lenat proposed that trustworthy AI should combine the symbolic and the neural approach.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ---------- Shannon ---------- -->
+<p class="aside reveal" lang="pl">…tymczasem pomysł, który ostatecznie wygrał, był starszy i prostszy.</p>
+<p class="aside reveal" lang="en">…meanwhile the idea that eventually won was older and simpler.</p>
+
+<article class="voice voice--doubt" id="w-shannon" data-pos="-0.75" data-label="1948">
+  <div class="voice__who reveal">
+    <img src="img/shannon.jpg" alt="Claude Shannon">
+    <div>
+      <p class="voice__year">1948</p>
+      <h3 class="voice__name">Claude Shannon</h3>
+      <p class="voice__role" lang="pl">matematyk, twórca teorii informacji</p>
+      <p class="voice__role" lang="en">mathematician, founder of information theory</p>
+    </div>
+  </div>
+  <div>
+    <div class="bubble reveal">
+      <div lang="pl">
+        <p>W „Matematycznej teorii komunikacji” potraktował język jako proces losowy. Pokazał teksty w których kolejne słowo lub kolejny znak był generowany z samych statystyk: najpierw z częstości liter, potem par liter, potem słów.</p>
+        <p class="cry">Im dłuższy kontekst, tym bardziej wynik przypominał angielski.</p>
+        <p>To jest w miniaturze zasada działania dzisiejszych modeli językowych.</p>
+      </div>
+      <div lang="en">
+        <p>In “A Mathematical Theory of Communication” he treated language as a random process. He showed texts in which each next word or next character was generated from statistics alone: first from letter frequencies, then from pairs of letters, then from words.</p>
+        <p class="cry">The longer the context, the more the result resembled English.</p>
+        <p>That is, in miniature, how today’s language models work.</p>
+      </div>
+    </div>
+    <div class="context reveal" lang="pl">
+      <h4>Skąd ten głos</h4>
+      <p>Maszyna Shannona zawsze ma następne słowo, bo zawsze istnieje jakieś najbardziej prawdopodobne. Nie zna pojęcia prawdy, zna tylko prawdopodobieństwo. Sam Shannon celowo odłożył znaczenie na bok jako nieistotne dla inżyniera.</p>
+      <p>Dzisiejsze modele odpowiedzą więc na każde pytanie, także na takie, na które nie znają odpowiedzi.</p>
+    </div>
+    <div class="context reveal" lang="en">
+      <h4>Where this voice comes from</h4>
+      <p>Shannon’s machine always has a next word, because some word is always the most probable. It has no notion of truth, only of probability. Shannon himself deliberately set meaning aside as irrelevant to the engineer.</p>
+      <p>Today’s models will therefore answer any question, including those they do not know the answer to.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ---------- Finał / Finale ---------- -->
+<section class="finale" data-pos="0" data-label-pl="oba" data-label-en="both">
+  <p class="finale__old reveal"><span lang="pl">Wiedzieć wszystko czy wiedzieć na pewno?</span><span lang="en">Know everything or know for certain?</span></p>
+  <p class="finale__new finale__new--ink reveal"><span lang="pl">Naucz maszynę mówić „nie wiem”.</span><span lang="en">Teach the machine to say “I don’t know”.</span></p>
+  <p class="finale__next reveal" lang="pl">Modele językowe to Pliniusz zbudowany na maszynie Shannona: wiedzą prawie wszystko i niczego nie gwarantują. Najciekawsze dzisiejsze pomysły łączą obie strony. Model proponuje odpowiedź, a osobny, ścisły system sprawdza ją krok po kroku. Model, który nie wie, uczy się to przyznać. <a href="#spor-2">Następny spór: ryzyka jutra czy szkody dziś?</a></p>
+  <p class="finale__next reveal" lang="en">Language models are Pliny built on Shannon’s machine: they know almost everything and guarantee nothing. The most interesting ideas today join the two sides. The model proposes an answer, and a separate, rigorous system checks it step by step. A model that does not know learns to admit it. <a href="#spor-2">Next dispute: tomorrow’s risks or today’s harms?</a></p>
+</section>
+
+</div>
+</div>
+
+<!-- =====================================================================
+     SPÓR 2 / DISPUTE 2: Jutro czy dziś? / Tomorrow or today?
+     Lewa strona (voice--doubt)  = ryzyko jutra / future risk
+     Prawa strona (voice--hope)  = szkody dziś  / present harms
+     data-pos: położenie wskaźnika na pasku, od -1 (lewo) do 1 (prawo)
+     ===================================================================== -->
+<div class="ep ep--2" id="spor-2" data-ep="2">
+
+<!-- plansza tytułowa / title plate -->
+
+<section class="opening wrap">
+  <p class="opening__kicker"><span lang="pl">Spór drugi</span><span lang="en">Second dispute</span></p>
+  <h2 class="opening__title opening__title--split">
+    <span lang="pl">Ryzyka <span class="t-a">jutra</span> czy szkody <span class="t-b">dziś?</span></span>
+    <span lang="en"><span class="t-a">Tomorrow’s</span> risks or <span class="t-b">today’s</span> harms?</span>
+  </h2>
+  <p class="opening__lede" lang="pl">Wszyscy w tym sporze zgadzają się, że AI niesie ryzyko. Kłócą się o to, gdzie patrzeć. Jedni ostrzegają przed tym, co może nadejść: zagładą, cyfrową dyktaturą, końcem pracy, utratą kontroli. Drudzy pokazują szkody, które już się dzieją.</p>
+  <p class="opening__lede" lang="en">Everyone in this dispute agrees that AI carries risk. They argue about where to look. Some warn of what may come: extinction, digital dictatorship, the end of work, loss of control. Others point to harms that are already happening.</p>
+  <ol class="years">
+    <li class="is-doubt"><a href="#r-altman"><b>2015</b><span>Altman</span></a></li>
+    <li class="is-hope"><a href="#r-oneil"><b>2016</b><span>O’Neil</span></a></li>
+    <li class="is-doubt"><a href="#r-harari"><b>2024</b><span>Harari</span></a></li>
+    <li class="is-hope"><a href="#r-gebru"><b>2018</b><span>Gebru</span></a></li>
+    <li class="is-doubt"><a href="#r-hinton"><b>2016</b><span>Hinton</span></a></li>
+    <li class="is-hope"><a href="#r-crawford"><b>2021</b><span>Crawford</span></a></li>
+    <li class="is-doubt"><a href="#r-bengio"><b>2025</b><span>Bengio</span></a></li>
+  </ol>
+</section>
+
+<div class="wrap">
+
+<!-- ---------- Altman ---------- -->
+<p class="aside reveal" lang="pl">W 2015 roku przyszły szef OpenAI pisze na swoim blogu…</p>
+<p class="aside reveal" lang="en">In 2015 the future head of OpenAI writes on his blog…</p>
+
+<article class="voice voice--doubt" id="r-altman" data-pos="-0.8" data-label="2015">
+  <div class="voice__who reveal">
+    <img src="img/altman.jpg" alt="Sam Altman">
+    <div>
+      <p class="voice__year">2015</p>
+      <h3 class="voice__name">Sam Altman</h3>
+      <p class="voice__role" lang="pl">przedsiębiorca, szef OpenAI</p>
+      <p class="voice__role" lang="en">entrepreneur, head of OpenAI</p>
+    </div>
+  </div>
+  <div>
+    <div class="bubble reveal">
+      <div lang="pl">
+        <p>Nadludzka inteligencja maszynowa to prawdopodobnie</p>
+        <p class="cry">największe zagrożenie dla dalszego istnienia ludzkości.</p>
+      </div>
+      <div lang="en">
+        <p>Superhuman machine intelligence is probably</p>
+        <p class="cry">“the greatest threat to the continued existence of humanity.”</p>
+      </div>
+    </div>
+    <div class="context reveal" lang="pl">
+      <h4>Skąd ten głos</h4>
+      <p>Altman napisał to w lutym 2015 roku. Dziesięć miesięcy później współzakładał OpenAI, a w 2023 roku podpisał oświadczenie, że ryzyko wyginięcia z powodu AI powinno być globalnym priorytetem.</p>
+      <p>To najdziwniejszy głos w sporze: ostrzega człowiek, który sam buduje to, przed czym ostrzega. Krytycy widzą w tym strategię, bo opowieść o technologii zdolnej zniszczyć świat podnosi jej wartość. Obrońcy odpowiadają, że interes mówiącego nie przesądza o prawdziwości zdania.</p>
+    </div>
+    <div class="context reveal" lang="en">
+      <h4>Where this voice comes from</h4>
+      <p>Altman wrote this in February 2015. Ten months later he co-founded OpenAI, and in 2023 he signed the statement that the risk of extinction from AI should be a global priority.</p>
+      <p>It is the strangest voice in the dispute: the warning comes from a man who builds the very thing he warns about. Critics see a strategy, because a story about a technology able to destroy the world raises its value. Defenders reply that a speaker’s interest does not settle whether the sentence is true.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ---------- O'Neil ---------- -->
+<p class="aside reveal" lang="pl">…ale inni odpowiadają, że na przyszłość nie trzeba czekać.</p>
+<p class="aside reveal" lang="en">…but others reply that there is no need to wait for the future.</p>
+
+<article class="voice voice--hope" id="r-oneil" data-pos="0.7" data-label="2016">
+  <div class="voice__who reveal">
+    <img src="img/oneil.jpg" alt="Cathy O’Neil">
+    <div>
+      <p class="voice__year">2016</p>
+      <h3 class="voice__name">Cathy O’Neil</h3>
+      <p class="voice__role" lang="pl">matematyczka, autorka „Broni matematycznej zagłady”</p>
+      <p class="voice__role" lang="en">mathematician, author of “Weapons of Math Destruction”</p>
+    </div>
+  </div>
+  <div>
+    <div class="bubble reveal">
+      <div lang="pl">
+        <p>Algorytmy już dziś decydują o tym, kto dostanie pracę, kredyt albo wyrok w zawieszeniu. Najgroźniejsze z nich są nieprzejrzyste, działają na masową skalę i wyrządzają szkody, od których nie ma odwołania.</p>
+        <p class="cry">Model to opinia zapisana w matematyce.</p>
+      </div>
+      <div lang="en">
+        <p>Algorithms already decide who gets a job, a loan or a suspended sentence. The most dangerous ones are opaque, operate at massive scale, and do damage that cannot be appealed.</p>
+        <p class="cry">A model is an opinion written in mathematics.</p>
+      </div>
+    </div>
+    <div class="context reveal" lang="pl">
+      <h4>Skąd ten głos</h4>
+      <p>O’Neil pracowała w funduszu hedgingowym w czasie kryzysu 2008 roku i widziała, jak modele, którym wszyscy ufali, pomogły wywołać katastrofę.</p>
+      <p>Jej najbardziej znany przykład to Sarah Wysocki, nauczycielka z Waszyngtonu, świetnie oceniana przez dyrekcję i rodziców. W 2011 roku straciła pracę razem z ponad dwustu innymi nauczycielami, bo algorytm wystawił jej niski wynik. Nikt nie potrafił wyjaśnić, skąd się wziął.</p>
+    </div>
+    <div class="context reveal" lang="en">
+      <h4>Where this voice comes from</h4>
+      <p>O’Neil worked at a hedge fund during the 2008 crisis and saw how models that everybody trusted helped cause a disaster.</p>
+      <p>Her best-known example is Sarah Wysocki, a teacher in Washington, DC, rated highly by her principal and by parents. In 2011 she lost her job together with more than two hundred other teachers, because an algorithm gave her a low score. Nobody could explain where it came from.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ---------- Harari ---------- -->
+<p class="aside reveal" lang="pl">Historyk dodaje, że katastrofa nie musi przyjść z hukiem…</p>
+<p class="aside reveal" lang="en">A historian adds that catastrophe need not arrive with a bang…</p>
+
+<article class="voice voice--doubt" id="r-harari" data-pos="-0.5" data-label="2024">
+  <div class="voice__who reveal">
+    <img src="img/harari.jpg" alt="Yuval Noah Harari">
+    <div>
+      <p class="voice__year">2024</p>
+      <h3 class="voice__name">Yuval Noah Harari</h3>
+      <p class="voice__role" lang="pl">historyk, autor „Nexusa”</p>
+      <p class="voice__role" lang="en">historian, author of “Nexus”</p>
+    </div>
+  </div>
+  <div>
+    <div class="bubble reveal">
+      <div lang="pl">
+        <p>AI to pierwsza technologia, która sama podejmuje decyzje i sama tworzy opowieści. Kto nią włada, może śledzić każdego i sterować tym, co ludzie czytają i w co wierzą.</p>
+        <p class="cry">AI może stać się narzędziem cyfrowych dyktatur, a my stracimy kontrolę nad obiegiem informacji.</p>
+      </div>
+      <div lang="en">
+        <p>AI is the first technology that makes decisions by itself and creates stories by itself. Whoever commands it can watch everyone and steer what people read and believe.</p>
+        <p class="cry">AI may become a tool of digital dictatorships, and we will lose control over the flow of information.</p>
+      </div>
+    </div>
+    <div class="context reveal" lang="pl">
+      <h4>Skąd ten głos</h4>
+      <p>Harari nie mówi o zbuntowanych robotach. Jego zdaniem demokracja jest rozmową, a rozmowy nie da się prowadzić, gdy nie wiadomo, kto jest botem. Proponuje między innymi zakaz podszywania się maszyn pod ludzi.</p>
+      <p>Jest historykiem, a nie badaczem AI, i bywa krytykowany za efektowne uogólnienia. Ma za to zasięg, o jakim informatycy mogą pomarzyć. Mechanizm, przed którym ostrzega, czyli inwigilacja i dezinformacja, działa już dziś.</p>
+    </div>
+    <div class="context reveal" lang="en">
+      <h4>Where this voice comes from</h4>
+      <p>Harari does not talk about rebellious robots. In his view democracy is a conversation, and a conversation cannot be held when nobody knows who is a bot. Among other things he proposes a ban on machines posing as people.</p>
+      <p>He is a historian, not an AI researcher, and is criticised for sweeping generalisations. He does have a reach that computer scientists can only dream of. The mechanism he warns about, surveillance and disinformation, is already at work.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ---------- Gebru ---------- -->
+<p class="aside reveal" lang="pl">…a w tym samym czasie systemy, które już działają, mylą się nierówno.</p>
+<p class="aside reveal" lang="en">…and all the while, systems already in use make their mistakes unevenly.</p>
+
+<article class="voice voice--hope" id="r-gebru" data-pos="0.85" data-label="2018">
+  <div class="voice__who reveal">
+    <img src="img/gebru.jpg" alt="Timnit Gebru">
+    <div>
+      <p class="voice__year">2018</p>
+      <h3 class="voice__name">Timnit Gebru</h3>
+      <p class="voice__role" lang="pl">informatyczka, współautorka „Gender Shades”</p>
+      <p class="voice__role" lang="en">computer scientist, co-author of “Gender Shades”</p>
+    </div>
+  </div>
+  <div>
+    <div class="bubble reveal">
+      <div lang="pl">
+        <p>Sprawdziłyśmy trzy komercyjne systemy rozpoznające płeć na zdjęciu twarzy. Dla mężczyzn o jasnej skórze myliły się najwyżej w 0,8% przypadków. Dla kobiet o ciemnej skórze błąd sięgał</p>
+        <p class="cry">34,7%.</p>
+        <p><b>To nie jest ryzyko przyszłości.</b> Te systemy są już sprzedawane.</p>
+      </div>
+      <div lang="en">
+        <p>We tested three commercial systems that classify gender from a photo of a face. For lighter-skinned men they were wrong at most 0.8% of the time. For darker-skinned women the error reached</p>
+        <p class="cry">34.7%.</p>
+        <p><b>This is not a risk of the future.</b> These systems are already on sale.</p>
+      </div>
+    </div>
+    <div class="context reveal" lang="pl">
+      <h4>Skąd ten głos</h4>
+      <p>Badanie „Gender Shades” Gebru przeprowadziła z Joy Buolamwini, której program do wykrywania twarzy nie widział, dopóki nie założyła białej maski. Przyczyna była prozaiczna: systemy uczono głównie na twarzach osób o jasnym odcieniu skóry.</p>
+      <p>Pod koniec 2020 roku Gebru straciła pracę w Google po sporze o artykuł, w którym nazwała modele językowe „stochastycznymi papugami”. Od tamtej pory powtarza, że opowieści o przyszłej zagładzie odciągają uwagę od ludzi krzywdzonych teraz.</p>
+    </div>
+    <div class="context reveal" lang="en">
+      <h4>Where this voice comes from</h4>
+      <p>Gebru carried out the “Gender Shades” study with Joy Buolamwini, whom face-detection software could not see until she put on a white mask. The cause was mundane: the systems had been trained mostly on the faces of people with lighter skin.</p>
+      <p>At the end of 2020 Gebru lost her job at Google after a dispute over a paper that called language models “stochastic parrots”. She has argued ever since that tales of future doom pull attention away from people being harmed now.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ---------- Hinton ---------- -->
+<p class="aside reveal" lang="pl">Ojciec głębokich sieci ogłasza z kolei koniec całego zawodu…</p>
+<p class="aside reveal" lang="en">A father of deep networks, in turn, announces the end of a whole profession…</p>
+
+<article class="voice voice--doubt" id="r-hinton" data-pos="-0.6" data-label="2016">
+  <div class="voice__who reveal">
+    <img src="img/hinton.jpg" alt="Geoffrey Hinton">
+    <div>
+      <p class="voice__year">2016</p>
+      <h3 class="voice__name">Geoffrey Hinton</h3>
+      <p class="voice__role" lang="pl">informatyk, noblista</p>
+      <p class="voice__role" lang="en">computer scientist, Nobel laureate</p>
+    </div>
+  </div>
+  <div>
+    <div class="bubble reveal">
+      <div lang="pl">
+        <p>AI zmieni rynek pracy szybciej, niż się spodziewamy.</p>
+        <p class="cry">Powinniśmy już teraz przestać szkolić radiologów.</p>
+        <p>W ciągu pięciu lat głębokie uczenie będzie odczytywać zdjęcia lepiej od nich.</p>
+      </div>
+      <div lang="en">
+        <p>AI will change the labour market faster than we expect.</p>
+        <p class="cry">“People should stop training radiologists now.”</p>
+        <p>Within five years deep learning will read scans better than they do.</p>
+      </div>
+    </div>
+    <div class="context reveal" lang="pl">
+      <h4>Skąd ten głos</h4>
+      <p>Hinton powiedział to w 2016 roku na konferencji w Toronto. Prognoza się nie sprawdziła: radiologów nie ubyło, a algorytmy weszły do pracowni jako pomoc, a nie zastępstwo. Sam przyznał później, że pomylił się co do tempa.</p>
+      <p>Dziś ostrzega, że AI zastąpi „przyziemną pracę umysłową”, a ryzyko zagłady ludzkości w ciągu trzydziestu lat ocenia na 10 do 20 procent. Historia z radiologami nie unieważnia tych obaw. Przypomina tylko, że mistrzostwo w budowaniu modeli nie daje pewności w przewidywaniu, co zrobi z nimi społeczeństwo.</p>
+    </div>
+    <div class="context reveal" lang="en">
+      <h4>Where this voice comes from</h4>
+      <p>Hinton said this in 2016 at a conference in Toronto. The forecast did not come true: the number of radiologists has not fallen, and algorithms entered the reading room as an aid, not a replacement. He later admitted he had got the pace wrong.</p>
+      <p>Today he warns that AI will replace “mundane intellectual labour”, and puts the risk of human extinction within thirty years at 10 to 20 percent. The radiology story does not cancel those fears. It is only a reminder that mastery in building models gives no certainty in predicting what society will do with them.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ---------- Crawford ---------- -->
+<p class="aside reveal" lang="pl">…a rachunek za dzisiejszą AI ktoś już płaci.</p>
+<p class="aside reveal" lang="en">…and somebody is already paying the bill for today’s AI.</p>
+
+<article class="voice voice--hope" id="r-crawford" data-pos="0.6" data-label="2021">
+  <div class="voice__who reveal">
+    <img src="img/crawford.jpg" alt="Kate Crawford">
+    <div>
+      <p class="voice__year">2021</p>
+      <h3 class="voice__name">Kate Crawford</h3>
+      <p class="voice__role" lang="pl">badaczka, autorka „Atlasu sztucznej inteligencji”</p>
+      <p class="voice__role" lang="en">researcher, author of “Atlas of AI”</p>
+    </div>
+  </div>
+  <div>
+    <div class="bubble reveal">
+      <div lang="pl">
+        <p>Sztuczna inteligencja</p>
+        <p class="cry">nie jest ani sztuczna, ani inteligentna.</p>
+        <p>Jest zrobiona z litu i miedzi, z prądu i wody, z nisko opłacanej pracy ludzi, którzy opisują dane, i z danych zabranych bez pytania.</p>
+      </div>
+      <div lang="en">
+        <p>Artificial intelligence</p>
+        <p class="cry">is neither artificial nor intelligent.</p>
+        <p>It is made of lithium and copper, of electricity and water, of the low-paid work of people who label data, and of data taken without asking.</p>
+      </div>
+    </div>
+    <div class="context reveal" lang="pl">
+      <h4>Skąd ten głos</h4>
+      <p>Crawford zaczyna książkę od wyprawy do kopalni litu w Nevadzie. Pokazuje, że „chmura” to kopalnie, elektrownie, centra danych i wysypiska elektroniki.</p>
+      <p>Jej argument dotyczy władzy. Koszty ponoszą miejsca i ludzie, których nie widać w prezentacjach, a zyski i decyzje skupiają się w kilku firmach. Spór o ryzyko AI jest więc także sporem o to, kto płaci.</p>
+    </div>
+    <div class="context reveal" lang="en">
+      <h4>Where this voice comes from</h4>
+      <p>Crawford opens her book with a trip to a lithium mine in Nevada. She shows that the “cloud” is mines, power plants, data centres and electronic waste dumps.</p>
+      <p>Her argument is about power. The costs fall on places and people who never appear in the presentations, while profits and decisions concentrate in a handful of companies. The dispute over AI risk is therefore also a dispute over who pays.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ---------- Bengio ---------- -->
+<p class="aside reveal" lang="pl">Na koniec głos, który z obaw o jutro zrobił program badań.</p>
+<p class="aside reveal" lang="en">Last comes a voice that turned fears about tomorrow into a research programme.</p>
+
+<article class="voice voice--doubt" id="r-bengio" data-pos="-0.4" data-label="2025">
+  <div class="voice__who reveal">
+    <img src="img/bengio.jpg" alt="Yoshua Bengio">
+    <div>
+      <p class="voice__year">2025</p>
+      <h3 class="voice__name">Yoshua Bengio</h3>
+      <p class="voice__role" lang="pl">informatyk, założyciel LawZero</p>
+      <p class="voice__role" lang="en">computer scientist, founder of LawZero</p>
+    </div>
+  </div>
+  <div>
+    <div class="bubble reveal">
+      <div lang="pl">
+        <p>Budujemy coraz bardziej samodzielnych agentów, a nie potrafimy sprawdzić, do czego naprawdę dążą.</p>
+        <p class="cry">Możemy stracić kontrolę nad AI.</p>
+        <p>Nie trzeba być pewnym katastrofy, żeby potraktować ją poważnie. Wystarczy, że nie umiemy jej wykluczyć.</p>
+      </div>
+      <div lang="en">
+        <p>We are building ever more autonomous agents, and we cannot check what they are really aiming at.</p>
+        <p class="cry">We may lose control of AI.</p>
+        <p>You do not have to be certain of a catastrophe to take it seriously. It is enough that we cannot rule it out.</p>
+      </div>
+    </div>
+    <div class="context reveal" lang="pl">
+      <h4>Skąd ten głos</h4>
+      <p>Bengio dzieli z Hintonem Nagrodę Turinga za głębokie uczenie. W 2025 roku założył LawZero, organizację non profit pracującą nad bezpieczeństwem systemów AI.</p>
+      <p>Przewodniczy też Międzynarodowemu raportowi o bezpieczeństwie AI. Raport opisuje utratę kontroli jako jedno z głównych ryzyk obok oszustw z użyciem deepfake’ów, więc ryzyko jutrzejsze i szkody dzisiejsze trafiły do jednego spisu treści.</p>
+    </div>
+    <div class="context reveal" lang="en">
+      <h4>Where this voice comes from</h4>
+      <p>Bengio shares the Turing Award for deep learning with Hinton. In 2025 he founded LawZero, a non-profit working on the safety of AI systems.</p>
+      <p>He also chairs the International AI Safety Report. The report describes loss of control as one of the main risks, next to deepfake fraud, so tomorrow’s risk and today’s harms have ended up in one table of contents.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ---------- Finał / Finale ---------- -->
+<section class="finale" data-pos="0" data-label-pl="oba" data-label-en="both">
+  <p class="finale__old reveal"><span lang="pl">Jutro czy dziś?</span><span lang="en">Tomorrow or today?</span></p>
+  <p class="finale__new finale__new--ink reveal"><span lang="pl">Jutro zaczyna się dziś.</span><span lang="en">Tomorrow starts today.</span></p>
+  <p class="finale__next reveal" lang="pl">Obie strony mają swoje dowody, a uwaga jest jedna. Kto chce być wiarygodny w sprawie jutra, powinien zacząć od szkód, które widać już dziś.</p>
+  <p class="finale__next reveal" lang="en">Both sides have their evidence, and there is only so much attention. Anyone who wants to be credible about tomorrow should start with the harms that are visible today.</p>
+  <p class="finale__next reveal"><a href="#spor-3"><span lang="pl">Następny spór: czy modele AI można zrozumieć?</span><span lang="en">Next dispute: can AI models be understood?</span></a></p>
+</section>
+
+</div>
+</div>
+
+<!-- =====================================================================
+     SPÓR 3 / DISPUTE 3: Musimy wyjaśnić / We must explain
+     Lewa strona (voice--doubt) = nie będziemy wiedzieć / we will not know
+     Prawa strona (voice--hope) = będziemy wiedzieć     / we will know
+     ===================================================================== -->
+<div class="ep ep--3" id="spor-3" data-ep="3">
+
+<!-- plansza tytułowa / title plate -->
+
+<section class="opening wrap">
+  <p class="opening__kicker"><span lang="pl">Spór trzeci</span><span lang="en">Third dispute</span></p>
+  <p class="opening__latin">Ignoramus et ignorabimus</p>
+  <h2 class="opening__title"><span lang="pl">Czy modele AI można zrozumieć?</span><span lang="en">Can AI models be understood?</span></h2>
+  <p class="opening__lede" lang="pl">Kiedy ktoś mówi, że sztucznej inteligencji nie da się wyjaśnić, wcale nie żartuje. Ten spór jest starszy niż komputery: czy złożony system można w pełni zrozumieć? </p>
+  <p class="opening__lede" lang="en">When someone says that artificial intelligence cannot be explained, they are not joking. This dispute is older than computers: can a complex system ever be fully understood?</p>
+  <ol class="years">
+    <li class="is-doubt"><a href="#v1872"><b>1872</b><span>du Bois-Reymond</span></a></li>
+    <li class="is-hope"><a href="#v1930"><b>1930</b><span>Hilbert</span></a></li>
+    <li class="is-doubt"><a href="#v1931"><b>1930</b><span>Gödel</span></a></li>
+    <li class="is-hope"><a href="#v1940"><b>1940</b><span>von Neumann</span></a></li>
+    <li class="is-doubt"><a href="#v2018"><b>2018</b><span>Hinton</span></a></li>
+    <li class="is-hope"><a href="#vnow"><b><span lang="pl">dziś</span><span lang="en">today</span></b><span>Beta &amp; Bit</span></a></li>
+  </ol>
+</section>
+
+<div class="wrap">
+
+<!-- 1872 -->
+<p class="aside reveal" lang="pl">O tym, czy pełne zrozumienie jest w ogóle możliwe, uczeni spierali się od dawna…</p>
+<p class="aside reveal" lang="en">The possibility of fully understanding has been discussed by many scientists…</p>
+
+<article class="voice voice--doubt" id="v1872" data-pos="-0.8" data-label="1872">
+  <div class="voice__who reveal">
+    <img src="img/dubois.jpg" alt="Emil du Bois-Reymond">
+    <div>
+      <p class="voice__year">1872</p>
+      <h3 class="voice__name">Emil du Bois-Reymond</h3>
+      <p class="voice__role" lang="pl">fizjolog, Lipsk</p>
+      <p class="voice__role" lang="en">physiologist, Leipzig</p>
+    </div>
+  </div>
+  <div>
+    <div class="bubble reveal">
+      <p class="cry"><i>Ignoramus et ignorabimus!</i></p>
+      <div lang="pl">
+        <p><b>„Nie wiemy i nie będziemy wiedzieć”.</b></p>
+        <p>Poznanie naukowe ma nieprzekraczalne granice. Niektóre zagadki pozostaną poza zasięgiem badań, bez względu na to, jak wielki postęp osiągnie ludzkość.</p>
+      </div>
+      <div lang="en">
+        <p><b>“We do not know and will not know.”</b></p>
+        <p>There are fundamental limits to scientific knowledge. Some mysteries lie beyond the reach of scientific inquiry, no matter how much progress humanity might achieve.</p>
+      </div>
+    </div>
+    <div class="context reveal" lang="pl">
+      <h4>Skąd ten głos</h4>
+      <p>14 sierpnia 1872 roku, zjazd niemieckich przyrodników i lekarzy w Lipsku. Wykład „O granicach poznania przyrody” wygłasza jeden z najwybitniejszych empiryków epoki: człowiek, który jako pierwszy mierzył prądy elektryczne w nerwach i mięśniach.</p>
+      <p>Du Bois-Reymond wskazał dwie granice: nigdy nie dowiemy się, czym w istocie są materia i energia, ani jak z ruchu atomów w mózgu powstaje świadomość. Osiem lat później rozszerzył listę do siedmiu „zagadek świata”.</p>
+    </div>
+    <div class="context reveal" lang="en">
+      <h4>Where this voice comes from</h4>
+      <p>14 August 1872, the congress of German naturalists and physicians in Leipzig. The lecture “On the Limits of Our Knowledge of Nature” is given by one of the most eminent empiricists of the age: the man who first measured electrical currents in nerves and muscles.</p>
+      <p>Du Bois-Reymond named two limits: we will never learn what matter and energy really are, nor how consciousness arises from atoms moving in the brain. Eight years later he extended the list to seven “world riddles”.</p>
+    </div>
+  </div>
+</article>
+
+<!-- 1930 -->
+<p class="aside reveal" lang="pl">…co spotkało się z mocną odpowiedzią…</p>
+<p class="aside reveal" lang="en">…which met with strong responses…</p>
+
+<article class="voice voice--hope" id="v1930" data-pos="0.9" data-label="1930">
+  <div class="voice__who reveal">
+    <img src="img/hilbert.jpg" alt="David Hilbert">
+    <div>
+      <p class="voice__year">1930</p>
+      <h3 class="voice__name">David Hilbert</h3>
+      <p class="voice__role" lang="pl">matematyk, Królewiec</p>
+      <p class="voice__role" lang="en">mathematician, Königsberg</p>
+    </div>
+  </div>
+  <div>
+    <div class="bubble reveal">
+      <p lang="pl">„Nie powinniśmy wierzyć tym, którzy dziś z filozoficzną miną i tonem wyższości przepowiadają upadek kultury i godzą się na <i>ignorabimus</i>. Dla nas nie ma żadnego <i>ignorabimus</i> i moim zdaniem nie ma go również w naukach przyrodniczych. Na przekór niedorzecznemu <i>ignorabimus</i> naszym hasłem niech będzie:</p>
+      <p lang="en">“We must not believe those who today, with philosophical bearing and deliberative tone, prophesy the fall of culture and accept the <i>ignorabimus</i>. For us, there is no <i>ignorabimus</i>, and in my opinion, none whatever in natural science. In opposition to the foolish <i>ignorabimus</i> our slogan shall be:</p>
+      <p class="cry"><i>Wir müssen wissen. Wir werden wissen!</i></p>
+      <p lang="pl"><b>Musimy wiedzieć. Będziemy wiedzieć!</b></p>
+      <p lang="en"><b>We must know. We will know!</b></p>
+    </div>
+    <div class="context reveal" lang="pl">
+      <h4>Skąd ten głos</h4>
+      <p>8 września 1930 roku Hilbert, wówczas najbardziej wpływowy matematyk świata, przemawia w Królewcu. Fragment przemówienia nadaje radio, a nagranie zachowało się do dziś. Już wcześniej, w 1900 roku w Paryżu, ogłaszając słynną listę 23 problemów, zapewniał, że w matematyce nie ma żadnego <i>ignorabimus</i>. Jego program był konkretny: zapisać całą matematykę w systemie formalnym i dowieść, że jest on wolny od sprzeczności. Ostatnie dwa zdania przemówienia wyryto na jego nagrobku w Getyndze. Ironia historii polega na tym, że odpowiedź padła dzień wcześniej, w tym samym mieście.</p>
+    </div>
+    <div class="context reveal" lang="en">
+      <h4>Where this voice comes from</h4>
+      <p>On 8 September 1930 Hilbert, then the most influential mathematician in the world, speaks in Königsberg. Part of the address goes out on the radio, and the recording survives. Earlier, in 1900 in Paris, presenting his famous list of 23 problems, he had already insisted that in mathematics there is no <i>ignorabimus</i>. His programme was concrete: write all of mathematics as a formal system and prove that it is free of contradiction. The last two sentences of the address are carved on his gravestone in Göttingen. The irony of history is that the reply had been given a day earlier, in the same city.</p>
+    </div>
+  </div>
+</article>
+
+<!-- 1931 -->
+<p class="aside reveal" lang="pl">…ale sama wola nie wystarczy…</p>
+<p class="aside reveal" lang="en">…willingness alone, however, is not enough…</p>
+
+<article class="voice voice--doubt" id="v1931" data-pos="-0.55" data-label="1930">
+  <div class="voice__who reveal">
+    <img src="img/godel.jpg" alt="Kurt Gödel">
+    <div>
+      <p class="voice__year">1930</p>
+      <h3 class="voice__name">Kurt Gödel</h3>
+      <p class="voice__role" lang="pl">logik, Wiedeń</p>
+      <p class="voice__role" lang="en">logician, Vienna</p>
+    </div>
+  </div>
+  <div>
+    <div class="bubble reveal">
+      <div lang="pl">
+        <p>Twierdzenia o niezupełności:</p>
+        <ul>
+          <li>W każdym niesprzecznym, dostatecznie bogatym systemie formalnym istnieją prawdziwe zdania matematyczne, których nie da się w nim dowieść.</li>
+          <li>Taki system nie potrafi dowieść własnej niesprzeczności, jeśli korzysta wyłącznie z własnych reguł.</li>
+        </ul>
+        <p class="cry">Niektóre prawdy są nieosiągalne dla dowodu. Nie trudne. Niemożliwe.</p>
+      </div>
+      <div lang="en">
+        <p>Incompleteness theorems:</p>
+        <ul>
+          <li>In any consistent, sufficiently expressive formal system, there exist true mathematical statements that cannot be proven within the system.</li>
+          <li>Such a system cannot prove its own consistency using only its own rules.</li>
+        </ul>
+        <p class="cry">Some truths are unreachable through proof. Not difficult. Impossible.</p>
+      </div>
+    </div>
+    <div class="context reveal" lang="pl">
+      <h4>Skąd ten głos</h4>
+      <p>7 września 1930 roku, dzień przed przemówieniem Hilberta, w Królewcu kończy się konferencja o podstawach nauk ścisłych. W dyskusji przy okrągłym stole 24-letni Gödel w kilku zdaniach wspomina o swoim wyniku.</p>
+      <p>Pomysł jest prosty i przewrotny. Gödel konstruuje zdanie arytmetyczne, które mówi o sobie: „nie da się mnie dowieść”. Jeśli system je dowodzi, to dowodzi fałszu. Jeśli nie, zdanie jest prawdziwe, ale pozostaje poza zasięgiem systemu.</p>
+    </div>
+    <div class="context reveal" lang="en">
+      <h4>Where this voice comes from</h4>
+      <p>On 7 September 1930, the day before Hilbert’s address, a conference on the foundations of the exact sciences is closing in Königsberg. In a round-table discussion the 24-year-old Gödel mentions his result in a few sentences.</p>
+      <p>The idea is simple and devious. Gödel builds an arithmetical sentence that says of itself: “I cannot be proven.” If the system proves it, the system proves a falsehood. If it does not, the sentence is true yet out of the system’s reach.</p>
+    </div>
+  </div>
+</article>
+
+<!-- 1940 -->
+<p class="aside reveal" lang="pl">…ale i z tym problemem sobie poradzono.</p>
+<p class="aside reveal" lang="en">…however, this problem was also dealt with.</p>
+
+<article class="voice voice--hope" id="v1940" data-pos="0.45" data-label="1940">
+  <div class="voice__who reveal">
+    <img src="img/neumann.jpg" alt="John von Neumann">
+    <div>
+      <p class="voice__year">1940</p>
+      <h3 class="voice__name">John von Neumann</h3>
+      <p class="voice__role" lang="pl">matematyk, Princeton</p>
+      <p class="voice__role" lang="en">mathematician, Princeton</p>
+    </div>
+  </div>
+  <div>
+    <div class="bubble reveal">
+      <div lang="pl">
+        <p>Granice systemów formalnych nie są granicami ludzkiego rozumienia ani postępu nauki. Twórczość matematyczna nie mieści się w jednym, ustalonym raz na zawsze systemie.</p>
+        <p class="cry">Jeśli system nie wystarcza, rozszerz go. Jeśli brakuje aksjomatów, dodaj nowe.</p>
+        <p>Granice istnieją. Istnieje też pomysłowość, która pozwala je przekraczać.</p>
+      </div>
+      <div lang="en">
+        <p>Limits of formal systems are not limits of human understanding or scientific progress. Mathematical creativity is not confined to any single fixed formal system.</p>
+        <p class="cry">If a system is insufficient, extend it. If axioms fall short, create new ones.</p>
+        <p>Limits exist. So does the creativity to overcome them.</p>
+      </div>
+    </div>
+    <div class="context reveal" lang="pl">
+      <h4>Skąd ten głos</h4>
+      <p>Von Neumann siedział w Królewcu na sali i jako jeden z nielicznych od razu pojął, co powiedział Gödel. W ciągu kilku tygodni sam wyprowadził drugie twierdzenie i napisał o tym do autora, który miał je już gotowe.</p>
+      <p>Po tym odkryciu porzucił logikę, ale nie ambicję rozumienia. Zajął się mechaniką kwantową, teorią gier, a potem architekturą komputerów. Granica jednego systemu nie zatrzymała ani jego, ani matematyki.</p>
+    </div>
+    <div class="context reveal" lang="en">
+      <h4>Where this voice comes from</h4>
+      <p>Von Neumann was in the room in Königsberg, and was among the very few who grasped at once what Gödel had said. Within weeks he derived the second theorem himself and wrote to its author, who already had it.</p>
+      <p>After that he left logic, but not the ambition to understand. He turned to quantum mechanics, game theory, and then the architecture of computers. The limit of one system stopped neither him nor mathematics.</p>
+    </div>
+  </div>
+</article>
+
+<!-- 2018 -->
+<p class="aside reveal" lang="pl">W możliwość wyjaśnienia AI wątpią dziś nawet nobliści…</p>
+<p class="aside reveal" lang="en">The possibility of explaining AI is being questioned even by Nobel prize winners…</p>
+
+<article class="voice voice--doubt" id="v2018" data-pos="-0.65" data-label="2018">
+  <div class="voice__who reveal">
+    <img src="img/hinton.jpg" alt="Geoffrey Hinton">
+    <div>
+      <p class="voice__year">2018</p>
+      <h3 class="voice__name">Geoffrey Hinton</h3>
+      <p class="voice__role" lang="pl">informatyk, Toronto</p>
+      <p class="voice__role" lang="en">computer scientist, Toronto</p>
+    </div>
+  </div>
+  <div>
+    <div class="bubble reveal">
+      <div lang="pl">
+        <p>Ludzie nie potrafią wyjaśnić, jak robią większość rzeczy, które robią. Kto prosi ich o uzasadnienie decyzji, ten zmusza ich, żeby</p>
+        <p class="cry">„zmyślili jakąś historię”.</p>
+        <p>Sieci neuronowe mają podobny problem. Wytrenowana sieć to miliard liczb, w których zapisała wiedzę wydobytą z danych.</p>
+      </div>
+      <div lang="en">
+        <p>People cannot explain how they do most of the things they do. Ask them to justify a decision, and</p>
+        <p class="cry">“you are forcing them to make up a story.”</p>
+        <p>Neural nets have a similar problem. A trained network is a billion numbers that hold the knowledge it extracted from the data.</p>
+      </div>
+    </div>
+    <div class="context reveal" lang="pl">
+      <h4>Skąd ten głos</h4>
+      <p>To słowa z wywiadu dla magazynu „Wired” z grudnia 2018 roku. Mówi je człowiek, którego prace nad sieciami neuronowymi przyniosły mu Nagrodę Turinga, a w 2024 roku Nagrodę Nobla z fizyki. Trudno o bardziej kompetentnego sceptyka.</p>
+      <p>Psychologia stoi po jego stronie. Już w 1977 roku Richard Nisbett i Timothy Wilson pokazali, że ludzie z pełnym przekonaniem podają powody swoich decyzji, choć do prawdziwych przyczyn nie mają dostępu.</p>
+    </div>
+    <div class="context reveal" lang="en">
+      <h4>Where this voice comes from</h4>
+      <p>The words come from a <i>Wired</i> interview of December 2018. They are spoken by a man whose work on neural networks earned him the Turing Award and, in 2024, the Nobel Prize in Physics. A better qualified sceptic is hard to find.</p>
+      <p>Psychology is on his side. Back in 1977 Richard Nisbett and Timothy Wilson showed that people confidently report the reasons for their decisions while having no access to the real causes.</p>
+    </div>
+  </div>
+</article>
+
+<!-- today -->
+<p class="aside reveal" lang="pl">…ale Beta i Bit nie dają za wygraną.</p>
+<p class="aside reveal" lang="en">…but Beta and Bit don’t give up.</p>
+
+<article class="voice voice--hope" id="vnow" data-pos="0.75" data-label-pl="dziś" data-label-en="today">
+  <div class="voice__who reveal">
+    <img src="img/betabit.jpg" alt="Beta i Bit">
+    <div>
+      <p class="voice__year"><span lang="pl">Dziś</span><span lang="en">Today</span></p>
+      <h3 class="voice__name">Beta &amp; Bit</h3>
+      <p class="voice__role" lang="pl">ci, którzy pytają „dlaczego?”</p>
+      <p class="voice__role" lang="en">the ones who keep asking “why?”</p>
+    </div>
+  </div>
+  <div>
+    <div class="bubble reveal">
+      <div lang="pl">
+        <p>Kiedy AI działa jak czarna skrzynka, zagrożone są podstawy: odpowiedzialność, bezpieczeństwo i zaufanie. Bez wyjaśnień nie poprawimy błędów, nie wykryjemy uprzedzeń i niczego się nie nauczymy.</p>
+        <p>Jeśli modele są zbyt złożone, potrzebujemy lepszych technik, żeby je wyjaśniać, interpretować i uzgadniać z naszymi celami.</p>
+        <p class="cry">Musimy wyjaśnić! Wyjaśnimy!</p>
+      </div>
+      <div lang="en">
+        <p>When AI operates as a black box, it threatens fundamental principles of accountability, safety, and trust. Without explanation, errors cannot be corrected, biases cannot be uncovered, and we cannot learn.</p>
+        <p>If models are too complex, then we need to come up with better techniques to explain them, interpret them, or align them.</p>
+        <p class="cry">We must explain! We will explain!</p>
+      </div>
+    </div>
+    <div class="context reveal" lang="pl">
+      <h4>Skąd ten głos</h4>
+      <p>Hinton ma rację w jednym: wyjaśnienie, które tylko dobrze brzmi, jest bezwartościowe. Ale z tej obserwacji płyną dwa różne wnioski. Można zrezygnować z wyjaśnień. Można też zacząć sprawdzać, czy są wierne temu, co model naprawdę robi.</p>
+      <p>Sieć neuronowa ma nad ludzkim mózgiem jedną przewagę: da się do niej zajrzeć. Każdą wagę można odczytać, każdą aktywację zapisać, każdy eksperyment powtórzyć na dokładnie tym samym modelu. Żaden psycholog nie miał nigdy takiego laboratorium.</p>
+    </div>
+    <div class="context reveal" lang="en">
+      <h4>Where this voice comes from</h4>
+      <p>Hinton is right about one thing: an explanation that merely sounds good is worthless. But two different conclusions follow from that. One can give up on explanations. Or one can start checking whether they are faithful to what the model actually does.</p>
+      <p>A neural network has one advantage over the human brain: you can look inside. Every weight can be read, every activation recorded, every experiment repeated on exactly the same model. No psychologist ever had a laboratory like that.</p>
+    </div>
+  </div>
+</article>
+
+<!--
+<section class="finale">
+  <p class="finale__old reveal">Ignorabimus. Wir müssen wissen. </p>
+  <p class="finale__new reveal"><span lang="pl">Musimy wyjaśnić. Wyjaśnimy!</span><span lang="en">We must explain. We will explain!</span></p>
+  <p class="finale__next reveal" lang="pl">Hasło to jeszcze nie dowód. Ale każdy z tych sporów zaczynał się od kogoś, kto powiedział „nie da się”, i od kogoś, kto mimo to spróbował.</p>
+  <p class="finale__next reveal" lang="en">A slogan is not yet evidence. But each of these disputes began with someone who said “it cannot be done” and someone who tried anyway.</p>
+</section>
+-->
+
+</div>
+</div>
+
+<!-- =====================================================================
+     POINTA / CLOSING PLATE: spory mają konsekwencje (Epic Fails, artykuł w „Delcie”)
+     ===================================================================== -->
+<div class="ep ep--end" id="koniec" data-ep="end">
+<div class="wrap">
+<section class="finale outro">
+  <p class="opening__kicker reveal"><span lang="pl">Na koniec</span><span lang="en">To close</span></p>
+<!--  <p class="finale__new finale__new--ink reveal"><span lang="pl">Spory mają konsekwencje.</span><span lang="en">Disputes have consequences.</span></p> -->
+  <p class="finale__next reveal" lang="pl">To nie są akademickie kłótnie. Od nich zależy, jakie systemy AI powstają: takie, które odpowiedzą na wszystko, czy takie, które umieją powiedzieć „nie wiem”; pilnowane dziś czy dopiero jutro; wyjaśnialne czy nie.</p>
+  <p class="finale__next reveal" lang="en">These are not academic quarrels. They decide what kind of AI systems get built: ones that answer everything or ones that can say “I don’t know”; watched today or only tomorrow; explainable or not.</p>
+  <p class="finale__next reveal" lang="pl">W plebiscycie Epic Fails na najbardziej spektakularną wtopę AI, w ostatniej edycji wygrali czterej jeźdźcy AI-pokalipsy:</p>
+  <p class="finale__next reveal" lang="en">In Epic Fails, the public vote for the most spectacular AI blunder, the latest edition was won by the four horsemen of the AI-pocalypse:</p>
+
+  <ol class="horsemen reveal">
+    <li>
+      <b><span lang="pl">Konfabulacja</span><span lang="en">Confabulation</span></b>
+      <span lang="pl">Potocznie: halucynacje lub dosadniej „pierniczenie”. Firma startująca w przetargu złożyła 280 stron uzasadnienia z interpretacjami podatkowymi, które zmyślił model. Wypadła z przetargu.</span>
+      <span lang="en">Popularly: hallucination or, more bluntly, “talking nonsense”. A company bidding for a public contract filed 280 pages of justification citing tax rulings that the model had made up. It was thrown out of the tender.</span>
+    </li>
+    <li>
+      <b><span lang="pl">Dezinformacja</span><span lang="en">Disinformation</span></b>
+      <span lang="pl">Model napisze równie przekonujący tekst za i przeciw. Posłanka zamówiła u chatbota krytyczny wpis o exposé premiera i opublikowała go razem z poleceniami.</span>
+      <span lang="en">A model will write an equally convincing text for and against. A member of parliament ordered a critical post about the prime minister’s address from a chatbot and published it with the prompts still in.</span>
+    </li>
+    <li>
+      <b><span lang="pl">Lizusostwo</span><span lang="en">Sycophancy</span></b>
+      <span lang="pl">Youtuber oznajmił chatbotowi, że jest najmądrzejszym niemowlęciem świata. Chatbot przytaknął i pochwalił dietę z dań dla niemowląt.</span>
+      <span lang="en">A YouTuber told a chatbot he was the smartest baby in the world. The chatbot agreed and praised a diet of baby food.</span>
+    </li>
+    <li>
+      <b><span lang="pl">Bezkarność</span><span lang="en">Impunity</span></b>
+      <span lang="pl">Pacjent za radą chatbota zastąpił sól kuchenną bromkiem sodu i trafił do szpitala z zatruciem. Regulamin zastrzega, że to nie porada medyczna.</span>
+      <span lang="en">On a chatbot’s suggestion a patient replaced table salt with sodium bromide and ended up in hospital with poisoning. The terms of use say it was not medical advice.</span>
+    </li>
+  </ol>
+
+  <p lang="pl"><a href="https://pbiecek.github.io/files/Epic_Fails_delta_2026.pdf">Więcej w artykule „Czterej jeźdźcy AI-pokalipsy” w miesięczniku „Delta”</a></p>
+  <p lang="en"><a href="https://pbiecek.github.io/files/Epic_Fails_delta_2026.pdf">More in the article “The Four Horsemen of the AI-pocalypse” in the monthly “Delta” (in Polish)</a></p>
+
+  <p class="finale__next reveal" lang="pl">Sztuczna inteligencja nie rozstrzygnie tych sporów za nas.</p>
+  <p class="finale__next reveal" lang="en">Artificial intelligence will not settle these disputes for us.</p>
+
+</section>
+</div>
+</div>
+
+<footer class="wrap">
+  <span lang="pl">Spory o AI. Przemysław Biecek. Gala z okazji Wyróżnienia im. prof. Macieja W. Grabskiego, 16 listopada 2026.</span>
+  <span lang="en">DISPUTES OVER AI. Przemysław Biecek. Gala of the Professor Maciej W. Grabski Distinctions, 16 November 2026.</span>
+</footer>
+
+</main>
+
+<!-- przyciski do przechodzenia między częściami (to samo robi spacja i strzałki) -->
+<div class="stepper" role="group" aria-label="Części / Parts">
+  <button type="button" data-step="-1" aria-label="Poprzednia część / Previous part">&#8593;</button>
+  <button type="button" data-step="1" aria-label="Następna część / Next part">&#8595;</button>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
